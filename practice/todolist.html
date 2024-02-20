@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="container">
+        <div id="new-task">
+            <input type="text" placeholder="Task">
+            <button id="push">Add</button>
+        </div>
+        <div id="tasks"></div>
+    </div>
+    <script>
+        // initial refeerences
+         const newTaskInput = document.querySelector("#new-task input");
+         const taskDiv = document.querySelector("#tasks")
+         let deleteTasks, editTasks, task;
+         let updateNode = "";
+         let count;
+        //   function on window load
+        window.onload = () => {
+            updateNode = "";
+            count = Object.keys(localStorage).length;
+            displayTasks();
+        };
+
+        // function to display tasks
+        const displayTasks = () =>{
+            if(Object.keys(localStorage).length > 0){
+                taskDiv.style.display = "inline-block";
+            }else{
+                taskDiv.style.display = "none";
+            }
+            // clear the tasks
+            taskDiv.innerHTML = "";
+
+            // fetch all the keys in localStorage
+            let tasks = Object.keys(localStorage);
+            tasks = tasks.sort();
+
+
+            for ( let key of tasks){
+                let classValue = "";
+
+                // Get all values
+                let taskInnerDiv = document.createElement("div");
+                taskInnerDiv.classList.add(task);
+                taskInnerDiv.setAttribute("id", ley);
+                taskInnerDiv.innerHTML = `<span id - "taskname">
+                ${ey.split("_")[1]}</span>`;
+                
+                // localStorage would store boolean as string so we parse it to boolean back
+                ket editButton = document.createElement("button")
+                editButton.classList.add("edit");
+                editButton.innerHTML = `<i class='fas fa-edit'></i>`;
+                if(!JSON.parse(BALUE)){
+                    editButton.style.visibility = "visible";
+                }else{
+                    editButton.style.visibility = "hidden";
+                    taskInnerDiv.classList.add("completed");
+                }
+
+                taskInnerDiv.appendChild(editButton);
+                taskInnerDiv.innerHTML += `<button class="delete">
+                    <i class='fas fa-trash'></i></button>`;
+                    taskDiv.appendChild(taskInnerDiv);
+            }
+        };
+
+        // disable edit button
+            const disableButton = document.getElementsByClassName("edit");
+            Array.from(editButton).forEach((element) => {
+                element.disabled = bool;
+            });
+
+            // remove task from localStorage
+            const removeTask = (taskValue) => {
+                localStorage.removeTask(taskValue);
+                displayTasks();
+            };
+
+
+            // add tasks to localStorage
+            const updateStorage = (index.taskValue.completec) => {
+                localStorage.setItem(`${index}_${taskValue}`, 
+                completed);
+            };
+
+            // function to add new task
+            document.querySelector("#push").addEventListener("click", ()=> {
+                // enable the edit button
+                disableButton(false);
+                if(newTaskInput.value.length == 0){
+                    alert("Please Enter A Task")
+                }
+                else{
+                    // store locally and display from local storage
+                }
+            });
+
+    </script>
+    
+</body>
+</html>      
